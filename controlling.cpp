@@ -131,7 +131,7 @@ void mainFunctionBalanced(int maxNum, int numThreads){
     }
 
     std::cout << "Número de threads: " << numThreads << endl;
-    std::cout << "Tempo total de execução: " << duration.count() << " miliseconds" << endl;
+    std::cout << "Tempo de execução das threads: " << duration.count() << " miliseconds" << endl;
     std::cout << "Quantidade de números avaliados: " << maxNum << endl;
     std::cout << "Quantidade de números primos encontrados: " << count.load() << endl;
     
@@ -225,7 +225,7 @@ void mainFunction(int maxNum, int numThreads)
 
     // Print the results
     cout << "Número de threads: " << numThreads << endl;
-    cout << "Tempo total de execução: " << timeSpan.count() << " miliseconds" << endl;
+    cout << "Tempo total de execução das threads: " << timeSpan.count() << " miliseconds" << endl;
     cout << "Quantidade de números avaliados: " << maxNum << endl;
     cout << "Quantidade de números primos encontrados: " << count << endl;
     
@@ -239,7 +239,7 @@ void mainFunction(int maxNum, int numThreads)
     }
     auto endTotal = chrono::high_resolution_clock::now();
     auto timeSpanTotal = chrono::duration_cast<chrono::milliseconds>(endTotal - initTotal);
-    cout << "Tempo total de execução: " << timeSpanTotal.count() << " miliseconds" << endl;
+    cout << "Tempo de total execução: " << timeSpanTotal.count() << " miliseconds" << endl;
 }
 
 int main() {
@@ -255,10 +255,10 @@ int main() {
         outfile2.close();
     }
     for (int numThreads = 1; numThreads <= 10; numThreads++) {
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < 45; i++) {
             // Run the balanced and unbalanced versions multiple times to compare the results
-            mainFunctionBalanced(1000000, numThreads);
             mainFunction(1000000, numThreads);
+            mainFunctionBalanced(1000000, numThreads);
         
         }
     }

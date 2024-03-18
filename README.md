@@ -17,3 +17,5 @@ Após descompactar a pasta com os arquivos, siga os passos abaixo para executar 
 - Para gerar os gráficos, execute o terceiro bloco do notebook convert_data.ipynb.
 
 - O formato dos dados após usar o notebook é um csv onde as colunas são os números de threads e as linhas são o tempo de execução.
+
+- Após a execução de controlling.exe, dois arquivos são salvos contendo os primos encontrados na versão balanceada e não-balanceada (primes_balanced.txt e primes_unbalanced.txt).

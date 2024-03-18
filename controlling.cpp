@@ -13,6 +13,8 @@
 
 using namespace std;
 
+int MAX_PRIMES = 1000; // Mudar este numero caso deseje imprimir mais ou menos primos
+
 mutex queueMutex;
 condition_variable cv;
 queue<pair<int, int>> tasks;
@@ -136,7 +138,7 @@ void mainFunctionBalanced(int maxNum, int numThreads){
     std::cout << "Quantidade de números primos encontrados: " << count.load() << endl;
     
     // Print the primes if the count is less than 1000 to avoid flooding the console
-    if (count.load() < 1000) {
+    if (count.load() < MAX_PRIMES) {
         for (int prime : primes) {
             std::cout << prime << " ";
         }
@@ -230,7 +232,7 @@ void mainFunction(int maxNum, int numThreads)
     cout << "Quantidade de números primos encontrados: " << count << endl;
     
     // Print the primes if the count is less than 1000 to avoid flooding the console
-    if (count < 1000)
+    if (count < MAX_PRIMES) 
     {
         for (int prime : primes) {
             cout << prime;
